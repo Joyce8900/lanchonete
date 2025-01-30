@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from './components/navBar'
-import Produtos from './view/home'
+import Produtos from './view/produtos'
 
 const page = () => {
   return (
