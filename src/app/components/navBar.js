@@ -4,7 +4,7 @@ import Link from "next/link"
 
 const navBar = () => {
   return (
-    <div className="flex gap-2 mx-2 justify-end">
+    <div className="flex gap-2 mx-2 justify-end blue">
       <Link href={"/"}>home</Link>
       <div>about</div>
       <div>contact</div>

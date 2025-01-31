@@ -1,14 +1,27 @@
-export async function GET() {
-  // URL da API PocketBase
-  const baseUrl = "http://127.0.0.1:8090/api/collections/produtos/records"
+import PocketBase from "pocketbase"
 
+export async function POST(req) {
   try {
-    // Busca dados na API PocketBase
-    const httpRes = await fetch(`${baseUrl}`)
+    const pb = new PocketBase("http://127.0.0.1:8090")
+    const { email, senha } = await req.json()
 
-    const jsonRes = await httpRes.json()
-    return Response.json(jsonRes)
+    // Criar usuário no PocketBase
+    const data = {
+      email,
+      password: senha,
+      passwordConfirm: senha,
+      emailVisibility: true,
+    }
+
+    const record = await pb.collection("users").create(data)
+
+ 
+
+    return Response.json({ success: true, user: record }, { status: 201 })
   } catch (error) {
-    return Response.json(error)
+    return Response.json(
+      { success: false, error: error.message },
+      { status: 400 }
+    )
   }
 }
