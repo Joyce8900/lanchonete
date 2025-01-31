@@ -1,5 +1,6 @@
-import React from 'react'
-import Link from 'next/link'
+"use client"
+import React from "react"
+import Link from "next/link"
 
 const navBar = () => {
   return (
@@ -8,7 +9,7 @@ const navBar = () => {
       <div>about</div>
       <div>contact</div>
       <div>cart</div>
-      <div>login</div>
+      <Link href={"/registerUser"}>login</Link>
     </div>
   )
 }

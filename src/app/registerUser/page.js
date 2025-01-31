@@ -1,10 +1,11 @@
 import React from 'react'
+import UserForm from '../formUsers/register'
 
 const Register = () => {
   return (
     <div>
-      <
-    </div>>
+      <UserForm />
+    </div>
   )
 }
 
