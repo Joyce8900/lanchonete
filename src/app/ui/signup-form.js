@@ -5,12 +5,13 @@ import { signup } from "@/app/actions/auth"
 
 export default function SignupForm() {
   const [state, setState] = useState({ errors: {}, message: "" })
+  const [success, setSuccess] = useState(false)
   const [pending, setPending] = useState(false)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     setPending(true)
-    console.log(event)
+    
     const formData = new FormData(event.target)
     const result = await signup(state, formData)
 
@@ -18,6 +19,8 @@ export default function SignupForm() {
       setState({ ...state, errors: result.errors })
     } else if (result.message) {
       setState({ ...state, message: result.message })
+      
+      
     }
 
     setPending(false)
@@ -53,11 +56,11 @@ export default function SignupForm() {
           </div>
         )}
         <button disabled={pending} type="submit">
-          Sign Up
+          {pending ? "Cadastrando..." : "Sign Up"}
         </button>
         {state.message && <p>{state.message}</p>}
+        
       </form>
-      
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import PocketBase from "pocketbase"
+import { set } from "zod"
 
-export async function signup(state, formData) {
+export async function signup(setState, formData) {
   const pb = new PocketBase("http://127.0.0.1:8090")
 
   const data = {
@@ -13,8 +14,7 @@ export async function signup(state, formData) {
 
   try {
     const record = await pb.collection("users").create(data)
-    return { success: true, user: record }
-   
+    return { success: true, user: record, message: "Cadastro realizado com sucesso!" } 
   } catch (error) {
     return { success: false, error: error.message }
   }
