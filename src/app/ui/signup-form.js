@@ -7,6 +7,11 @@ export default function SignupForm() {
   const [state, setState] = useState({ errors: {}, message: "" })
   const [success, setSuccess] = useState(false)
   const [pending, setPending] = useState(false)
+  const [formValues, setFormValues] = useState({
+    name: "",
+    email: "",
+    password: "",
+  })
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -17,8 +22,10 @@ export default function SignupForm() {
 
     if (result.errors) {
       setState({ ...state, errors: result.errors })
+      setFormValues({ name: "", email: "", password: "" })
     } else if (result.message) {
       setState({ ...state, message: result.message })
+      setFormValues({ name: "", email: "", password: "" })
       
       
     }
@@ -31,19 +38,43 @@ export default function SignupForm() {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name</label>
-          <input id="name" name="name" placeholder="Name" />
+          <input
+            id="name"
+            name="name"
+            placeholder="Name"
+            value={formValues.name}
+            onChange={(e) =>
+              setFormValues({ ...formValues, name: e.target.value })
+            }
+          />
         </div>
         {state?.errors?.name && <p>{state.errors.name}</p>}
 
         <div>
           <label htmlFor="email">Email</label>
-          <input id="email" name="email" placeholder="Email" />
+          <input
+            id="email"
+            name="email"
+            placeholder="Email"
+            value={formValues.email}
+            onChange={(e) =>
+              setFormValues({ ...formValues, email: e.target.value })
+            }
+          />
         </div>
         {state?.errors?.email && <p>{state.errors.email}</p>}
 
         <div>
           <label htmlFor="password">Password</label>
-          <input id="password" name="password" type="password" />
+          <input
+            id="password"
+            name="password"
+            type="password"
+            value={formValues.password}
+            onChange={(e) =>
+              setFormValues({ ...formValues, password: e.target.value })
+            }
+          />
         </div>
         {state?.errors?.password && (
           <div>
@@ -59,7 +90,6 @@ export default function SignupForm() {
           {pending ? "Cadastrando..." : "Sign Up"}
         </button>
         {state.message && <p>{state.message}</p>}
-        
       </form>
     </div>
   )

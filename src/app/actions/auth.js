@@ -16,6 +16,6 @@ export async function signup(setState, formData) {
     const record = await pb.collection("users").create(data)
     return { success: true, user: record, message: "Cadastro realizado com sucesso!" } 
   } catch (error) {
-    return { success: false, error: error.message }
+    return { success: false, error: error.message, message: "Erro ao cadastrar!" }
   }
 }
