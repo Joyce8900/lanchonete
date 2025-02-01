@@ -9,7 +9,7 @@ const navBar = () => {
       <div>about</div>
       <div>contact</div>
       <div>cart</div>
-      <Link href={"/registerUser"}>login</Link>
+      <Link href={"../registerUser"}>register</Link>
     </div>
   )
 }

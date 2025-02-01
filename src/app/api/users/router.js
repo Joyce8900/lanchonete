@@ -4,7 +4,7 @@ export async function POST(req) {
   try {
     const pb = new PocketBase("http://127.0.0.1:8090")
     const { email, senha } = await req.json()
-
+    
     // Criar usuário no PocketBase
     const data = {
       email,
@@ -12,7 +12,7 @@ export async function POST(req) {
       passwordConfirm: senha,
       emailVisibility: true,
     }
-
+    console.log(data)
     const record = await pb.collection("users").create(data)
 
  
