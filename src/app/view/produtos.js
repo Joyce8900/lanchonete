@@ -30,29 +30,25 @@ const Produtos = async () => {
       {error && <div>Erro: {error}</div>}
       {produtos.length === 0 && (
         <div>
-          <h3>Erro: Nenhum filme encontrado.</h3>
-          <p>Por favor, consulte os filmes cadastrados.</p>
+          <h3>Erro: Nenhum produto encontrado.</h3>
         </div>
       )}
       {produtos.length === 1 ? (
         <div>
-          <h1>{movies[0].title}</h1>
-          <h2>{movies[0].year}</h2>
-          <Image
-            src={movies[0].poster}
-            alt={movies[0].title}
-            className="movie-poster"
-          />
+          <h1>{produtos[0].name}</h1>
+          <h2>{produtos[0].preco}</h2>
+          <img src={produtos[0].img} width={300} height={300} />
         </div>
       ) : (
-        produtos.map((produto) => (
-          <div key={movie.id}>
-            <h1>{movie.title}</h1>
-            <h2>{movie.year}</h2>
-            <Image
-              src={movie.poster}
-              alt={movie.title}
-              className="movie-poster"
+        produtos.map(({ produto }) => (
+          <div key={produto.id}>
+            <h1>{produto.name}</h1>
+            <h2>{produto.preco}</h2>
+            <img
+              src={produto.img}
+              alt={produto.name}
+              width={300}
+              height={300}
             />
           </div>
         ))

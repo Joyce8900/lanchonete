@@ -1,14 +1,15 @@
-import React from 'react'
-
+"use client"
+import React from "react"
+import Link from "next/link"
 
 const navBar = () => {
   return (
-    <div className="flex gap-2 flex-row mx-2">
-      <div>home</div>
+    <div className="flex gap-2 mx-2 justify-end blue">
+      <Link href={"/"}>home</Link>
       <div>about</div>
       <div>contact</div>
       <div>cart</div>
-      <div>login</div>
+      <Link href={"/registerUser"}>login</Link>
     </div>
   )
 }
