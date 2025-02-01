@@ -2,8 +2,8 @@
 import Form from "next/form"
 import { useState } from "react"
 export default function UserForm({onSubmit}) {
-  const [mensagem, setMensagem] = useState("")
-
+ 
+  
 
   return (
     <Form  action="/registerUser" className="flex flex-col direction-col gap-2 items-center m">
