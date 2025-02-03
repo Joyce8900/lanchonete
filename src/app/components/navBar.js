@@ -10,6 +10,7 @@ const navBar = () => {
       <div>contact</div>
       <div>cart</div>
       <Link href={"../registerUser"}>register</Link>
+      <Link href={"../loginUser"}>login</Link>
     </div>
   )
 }
