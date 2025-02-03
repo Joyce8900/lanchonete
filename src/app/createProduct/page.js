@@ -1,7 +1,8 @@
 import React from 'react'
 import CreateForm from '../ui/create-form'
 import NavBar from '../components/navBar' 
-const CreateProduct = () => {
+
+const Create = () => {
   return (
     <div>
       <NavBar />
@@ -10,4 +11,4 @@ const CreateProduct = () => {
   )
 }
 
-export default CreateProduct
+export default Create

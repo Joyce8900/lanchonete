@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import NavBar from "../components/navBar"
-import Link from "next/link"
+
 
 export default function Dashboard() {
   const [user, setUser] = useState(null)
@@ -38,12 +38,9 @@ export default function Dashboard() {
       >
         Sair
       </button>
-      <button
-        onClick={() => router.push("../createProduct")}>
+      <button onClick={() => router.push("/createProduct")}>
         Criar produto
       </button>
-      
-     
     </div>
   )
 }
