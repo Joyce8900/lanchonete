@@ -10,7 +10,6 @@ export default function CreateForm() {
     preco: "",
     img: "",
     name: "",
-    field: "-",
   })
 
   const handleSubmit = async (event) => {
@@ -87,18 +86,7 @@ export default function CreateForm() {
           />
         </div>
 
-        <div>
-          <label htmlFor="field">Campo</label>
-          <input
-            id="field"
-            name="field"
-            placeholder="Campo"
-            value={formValues.field}
-            onChange={(e) =>
-              setFormValues({ ...formValues, field: e.target.value })
-            }
-          />
-        </div>
+       
 
         <button disabled={pending} type="submit">
           {pending ? "Criando..." : "Criar Produto"}
