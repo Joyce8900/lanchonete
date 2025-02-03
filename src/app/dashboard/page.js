@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
+import NavBar from "../components/navBar"
+import Link from "next/link"
 
 export default function Dashboard() {
   const [user, setUser] = useState(null)
@@ -13,7 +15,7 @@ export default function Dashboard() {
 
     if (!userData) {
       // Se não houver dados do usuário, redirecione para a página de login
-      router.push("/login")
+      router.push("../actions/authLogin")
     } else {
       setUser(userData)
     }
@@ -25,16 +27,23 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h1>Bem-vindo, {user.name}!</h1>
+      <NavBar />
+      <h1>Bem-vindo!</h1>
       <p>Email: {user.email}</p>
       <button
         onClick={() => {
           localStorage.removeItem("user") // Limpe os dados do usuário
-          router.push("/login") // Redirecione para a página de login
+          router.push("../loginUser") // Redirecione para a página de login
         }}
       >
         Sair
       </button>
+      <button
+        onClick={() => router.push("../createProduct")}>
+        Criar produto
+      </button>
+      
+     
     </div>
   )
 }
