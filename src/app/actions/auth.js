@@ -9,7 +9,6 @@ export async function signup(setState, formData) {
     password: formData.get("password"),
     passwordConfirm: formData.get("password"),
     emailVisibility: true,
-    
   }
 
   try {

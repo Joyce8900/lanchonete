@@ -15,7 +15,7 @@ export default function Dashboard() {
 
     if (!userData) {
       // Se não houver dados do usuário, redirecione para a página de login
-      router.push("../actions/authLogin")
+      router.push("../loginUser")
     } else {
       setUser(userData)
     }

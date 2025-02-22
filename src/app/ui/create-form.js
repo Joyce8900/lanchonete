@@ -16,26 +16,30 @@ export default function CreateForm() {
     event.preventDefault()
     setPending(true)
 
+    const token = localStorage.getItem("token")
+
+    console.log("token", token)
+
     try {
       // Envia os dados para a rota de API
-      const response = await fetch("/api/create", {
+      const response = await fetch("http://127.0.0.1:8090/api/collections/produtos/records", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
         },
         body: JSON.stringify(formValues),
       })
 
-      const result = await response.json()
-
-      if (result.success) {
+      if (response.status === 200) {
         setState({ ...state, message: "Produto criado com sucesso!" })
         setSuccess(true)
         setFormValues({ preco: "", img: "", name: "", field: "-" }) // Limpa o formulário
       } else {
-        setState({ ...state, message: result.error })
+        setState({ ...state, message: "Erro ao criar o produto." })
       }
     } catch (error) {
+      
       setState({ ...state, message: "Erro ao criar o produto." })
     } finally {
       setPending(false)

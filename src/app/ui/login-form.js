@@ -24,6 +24,7 @@ export default function LoginForm() {
     if (result.success) {
       // Armazene os dados do usuário no localStorage
       localStorage.setItem("user", JSON.stringify(result.user))
+      localStorage.setItem("token", result.token)
 
       // Redirecione o usuário para a página de dashboard
       router.push("/dashboard")
