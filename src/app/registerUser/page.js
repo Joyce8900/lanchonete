@@ -1,20 +1,14 @@
 "use client"
-import React from 'react'
-import UserForm from '../formUsers/register'
-import NavBar from '../components/navBar'
+
+import React from "react"
+import NavBar from "../components/navBar"
+import SignupForm from "../ui/signup-form"
+
 const Register = () => {
-  const registerUsers = async ({IdEmail, Idsenha}) => {
-    const res = await fetch("../api/users",{
-      method: "POST",
-      body: JSON.stringify({IdEmail, Idsenha})
-    })
-    const result = await res.json()
-    return result.success
-  }
   return (
     <div>
       <NavBar />
-      <UserForm onSubmit={registerUsers} />
+      <SignupForm />
     </div>
   )
 }
