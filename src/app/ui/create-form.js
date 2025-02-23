@@ -10,6 +10,7 @@ export default function CreateForm() {
     preco: "",
     img: "",
     name: "",
+    user: "",
   })
 
   const handleSubmit = async (event) => {

@@ -5,6 +5,7 @@ export async function signup(setState, formData) {
   const pb = new PocketBase("http://127.0.0.1:8090")
 
   const data = {
+    name: formData.get("name"),
     email: formData.get("email"),
     password: formData.get("password"),
     passwordConfirm: formData.get("password"),

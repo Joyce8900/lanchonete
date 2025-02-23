@@ -28,16 +28,16 @@ export default function Dashboard() {
   return (
     <div>
       <NavBar />
-      <h1>Bem-vindo!</h1>
-      <p>Email: {user.email}</p>
+      <h1>Bem-vindo! {user.name}</h1>
+      
       <button
         onClick={() => {
           localStorage.removeItem("user") // Limpe os dados do usuário
-          router.push("../loginUser") // Redirecione para a página de login
         }}
       >
         Sair
       </button>
+      <br></br>
       <button onClick={() => router.push("/createProduct")}>
         Criar produto
       </button>

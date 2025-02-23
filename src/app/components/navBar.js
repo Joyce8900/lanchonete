@@ -12,7 +12,7 @@ const navBar = () => {
       <div>about</div>
       <div>contact</div>
       <div>cart</div>
-      {userData ? <div>{userData.email}</div> : <div>  <Link href={"../registerUser"}>register</Link>
+      {userData ? <div>{userData.name}</div> : <div>  <Link href={"../registerUser"}>register</Link>
       <Link href={"../loginUser"}>login</Link> </div>}
     </div>
   )
